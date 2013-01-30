@@ -2,6 +2,44 @@
 @import "less/mixins.less";
 @import "less/grid.less";
 
+//Generate grid below  
+#custom {          
+    .grid(@gridColumnWidth, @gridGutterWidth){   //Generate our custom grid
+        //Define styles for our custom grid 
+        .span (@columns, @offset: 0) when(isNumber(@gridColumnWidth)){ 
+            .makeColumn(@columns, @offset);
+        } 
+        .row()  when(isNumber(@gridColumnWidth)){
+            .makeRow(); 
+        }
+        //Define spans/row for small screens (with responsive mediaqueries)
+        .span (@columns, @offset: 0) when(@gridColumnWidth = auto){ 
+            float: none;
+            display: block;
+            width: auto;
+            margin: 0;   
+        }   
+        .row() when(@gridColumnWidth = auto){ 
+            margin-left: 0;
+        }
+
+        //Define the semantic grid:
+        .announcements {
+            .row();
+            .announcement {
+                .span(4);
+            }
+        }
+    } 
+} 
+
+#custom > .grid(@gridColumnWidth, @gridGutterWidth);
+@import "custom-responsive.less";
+
+//Rest of the normal LESS code
 .announcements {
-  color: brown;  
+    color: brown;
+    .announcement {
+        color:blue;
+    }
 }

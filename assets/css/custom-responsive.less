@@ -1,0 +1,38 @@
+@import "less/responsive.less";    //Disable importing variables and mixins, causes to break..
+ 
+ 
+ 
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+// --------------------------------------------------
+ 
+@media (max-width: 767px) {
+    // Custom grid
+    @gridColumnWidth: auto;
+    @gridGutterWidth: 0;
+    
+    #custom > .grid(@gridColumnWidth, @gridGutterWidth);
+}
+ 
+ 
+// PORTRAIT TABLET TO DEFAULT DESKTOP
+// ----------------------------------
+ 
+@media (min-width: 768px) and (max-width: 979px) {
+     // Custom grid
+    @gridColumnWidth: 42px;
+    @gridGutterWidth: 20px;
+
+    #custom > .grid(@gridColumnWidth, @gridGutterWidth);
+}
+ 
+ 
+// LARGE DESKTOP & UP
+// ------------------
+ 
+@media (min-width: 1200px) {
+    // Custom grid
+    @gridColumnWidth: 70px;
+    @gridGutterWidth: 30px;  
+ 
+    #custom > .grid(@gridColumnWidth, @gridGutterWidth);
+}
